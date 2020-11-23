@@ -7,10 +7,10 @@ import os
 import smtplib
 import gsearch
 engine = pyttsx3.init('sapi5')
-engine.setProperty('rate', 110)
+engine.setProperty('rate', 110)#you  can chage speed of computer voice 
 voices = engine.getProperty('voices')
 # print(voices[1].id)
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[1].id)#if 1 then female if 0 then male 
 
 
 def speak(audio):
@@ -55,8 +55,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 25)
     server.ehlo()
     server.starttls()
-    server.login('ayushmishrapupu21@gmail.com', 'ILoveMyMom123')
-    server.sendmail('ayushmishrapupu21@gmail.com', to, content)
+    server.login('your@gmail.com', '')
+    server.sendmail('receiver@gmail.com', to, content)
     server.close()
 
 if __name__ == "__main__":
@@ -130,7 +130,7 @@ if __name__ == "__main__":
             print(open_google)    
             
         elif 'play music' in query:
-            music_dir = 'C:\\Users\\ayush\\Desktop\\music'
+            music_dir = 'C:\\Users\\ayush\\Desktop\\music' #give the location of your music directory
             songs = os.listdir(music_dir)
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
@@ -142,16 +142,18 @@ if __name__ == "__main__":
             speak("its you sir aayush")
 
         elif 'open code' in query:
-            codePath = "C:\\Users\\ayush\\Desktop\\python\\jarvis.py"
+            codePath = "C:\\Users\\ayush\\Desktop\\python\\jarvis.py" #give the path of this code location 
             os.startfile(codePath)
+            """
         elif 'open vs' in query:
-            codePath = "C:\\Users\\ayush\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codePath = "C:\\Users\\ayush\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe" 
             os.startfile(codePath)
+            """
         elif 'open python' in query:
-            codePath = "C:\\Users\\ayush\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
+            codePath = "C:\\Users\\ayush\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"   #give the location of python folder
             os.startfile(codePath)
         elif 'open firefox' in query:
-            codePath = "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
+            codePath = "C:\\Program Files\\Mozilla Firefox\\firefox.exe" #if you use firefox then put your path
             os.startfile(codePath)
         
        
@@ -159,9 +161,9 @@ if __name__ == "__main__":
             try:
                 speak("What should I say?")
                 content = takeCommand()
-                to = "ayushmishralagan21@gmail.com"    
+                to = "senderperson.com"    
                 sendEmail(to, content)
                 speak("Email has been sent!")
             except Exception as e:
                 print(e)
-                speak("Sorry my friend harry bhai. I am not able to send this email")    
+                speak("Sorry my friend . I am not able to send this email")    
